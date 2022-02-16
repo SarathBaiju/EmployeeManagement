@@ -1,6 +1,10 @@
-﻿namespace EmployeeManagement.UI.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EmployeeManagement.DataAccess.Models
 {
-    public class EmployeeDetailedViewModel
+    public class EmployeeData
     {
         public int Id { get; set; }
         public string Name { get; set; }

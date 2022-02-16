@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.UI.Models;
+﻿using EmployeeManagement.Application.Contracts;
+using EmployeeManagement.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,25 +10,24 @@ namespace EmployeeManagement.UI.Controllers
 {
     public class EmployeeController : Controller
     {
+        private readonly IEmployeeService _employeeService;
+
+        public EmployeeController(IEmployeeService employeeService)
+        {
+            this._employeeService = employeeService;
+        }
+
         public IActionResult Index()
         {
-            var employees = new List<EmployeeViewModel>()
+            var employees = _employeeService.GetEmployees();
+
+            var employeeViewModels = employees.Select(employee => new EmployeeViewModel
             {
-                new EmployeeViewModel
-                {
-                    Name = "sarath",
-                    Id = 100,
-                    Department = "DEV"
-                },
-                 new EmployeeViewModel
-                {
-                    Name = "nandu",
-                    Id = 91,
-                    Department = "DEV"
-                }
-            };
-            
-            return View(employees);
+                Id = employee.Id,
+                Name = employee.Name,
+                Department = employee.Department
+            });
+            return View(employeeViewModels);
         }
     }
 }

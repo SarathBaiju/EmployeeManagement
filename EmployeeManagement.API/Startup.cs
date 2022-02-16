@@ -1,3 +1,8 @@
+using EmployeeManagement.API.Configuration;
+using EmployeeManagement.Application.Contracts;
+using EmployeeManagement.Application.Services;
+using EmployeeManagement.DataAccess.Contracts;
+using EmployeeManagement.DataAccess.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +30,8 @@ namespace EmployeeManagement.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.RegisterDependencies();
+
             services.AddControllers();
         }
 

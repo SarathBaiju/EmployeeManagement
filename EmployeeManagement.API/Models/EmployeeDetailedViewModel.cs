@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagement.UI.Models
+﻿namespace EmployeeManagement.API.Models
 {
     public class EmployeeDetailedViewModel
     {

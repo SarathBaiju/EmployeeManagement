@@ -1,6 +1,6 @@
-﻿namespace EmployeeManagement.UI.Models
+﻿namespace EmployeeManagement.UI.Models.Provider
 {
-    public class EmployeeDetailedViewModel
+    public class EmployeeData
     {
         public int Id { get; set; }
         public string Name { get; set; }
