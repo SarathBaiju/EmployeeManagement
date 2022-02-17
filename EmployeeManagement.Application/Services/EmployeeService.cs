@@ -12,45 +12,19 @@ namespace EmployeeManagement.Application.Services
 
         public EmployeeService(IEmployeeRepository employeeRepository)
         {
-            this._employeeRepository = employeeRepository;
+            _employeeRepository = employeeRepository;
         }
 
         public EmployeeDto GetEmployeeById(int id)
         {
-            var employee = _employeeRepository.GetEmployeeById(id);
-
-            if(employee == null)
-            {
-                return null;
-            }
-
-            return new EmployeeDto
-            {
-                Id = employee.Id,
-                Name = employee.Name,
-                Age = employee.Age,
-                Address = employee.Address,
-                Department = employee.Department
-            };
+            //Get data from Repository
+            return null;
         }
 
         public IEnumerable<EmployeeDto> GetEmployees()
         {
-            var employeeData = _employeeRepository.GetEmployees();
-
-            if(employeeData == null)
-            {
-                return null;
-            }
-
-            return employeeData.Select(employee => new EmployeeDto
-            {
-                Id = employee.Id,
-                Name = employee.Name,
-                Age = employee.Age,
-                Address = employee.Address,
-                Department = employee.Department
-            });
+            //Get data from Repository
+            return null;
         }
     }
 }

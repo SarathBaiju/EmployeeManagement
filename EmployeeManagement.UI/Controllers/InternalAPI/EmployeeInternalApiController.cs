@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.UI.Controllers.API
+namespace EmployeeManagement.UI.Controllers.InternalAPI
 {
     [Route("api/internal/employee")]
     [ApiController]
@@ -17,11 +17,12 @@ namespace EmployeeManagement.UI.Controllers.API
 
         public EmployeeInternalApiController(IEmployeeApiClient employeeApiClient)
         {
-            this._employeeApiClient = employeeApiClient;
+            _employeeApiClient = employeeApiClient;
         }
+
         [HttpGet]
         [Route("{employeeId}")]
-        public IActionResult GetEmployeeById([FromRoute]int employeeId)
+        public IActionResult GetEmployeeById([FromRoute] int employeeId)
         {
             try
             {
@@ -34,7 +35,7 @@ namespace EmployeeManagement.UI.Controllers.API
 
                 throw;
             }
-           
+
         }
     }
 }

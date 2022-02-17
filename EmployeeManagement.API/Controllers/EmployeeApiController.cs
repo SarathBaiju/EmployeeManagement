@@ -19,59 +19,19 @@ namespace EmployeeManagement.API.Controllers
         }
 
         [HttpGet]
-        [Route("get-all")]
-        public IActionResult GetEmployees()
-        {
-            try
-            {
-                var employees = _employeeService.GetEmployees();
-
-                var employeeDetailedViewModels = new List<EmployeeDetailedViewModel>();
-
-                if (employees == null)
-                {
-                    return Ok(employeeDetailedViewModels);
-                }
-
-                employeeDetailedViewModels = employees.Select(employee => new EmployeeDetailedViewModel
-                {
-                    Id = employee.Id,
-                    Name = employee.Name,
-                    Department = employee.Department,
-                    Age = employee.Age,
-                    Address = employee.Address
-                }).ToList();
-
-                return Ok(employeeDetailedViewModels);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        [HttpGet]
         [Route("{employeeId}")]
         public IActionResult GetEmployeeById([FromRoute] int employeeId)
         {
             try
             {
-                var employee = _employeeService.GetEmployeeById(employeeId);
-
-                var employeeDetailedViewModel = new EmployeeDetailedViewModel();
-                if (employee == null)
+                /// get employee by calling GetEmployeeById() in IEmployeeService and store it in a variable and Map that variable to EmployeeDetailedViewModel. 
+                var employeeDetailedViewModel = new EmployeeDetailedViewModel
                 {
-                    return Ok(employeeDetailedViewModel);
-                }
-
-                employeeDetailedViewModel = new EmployeeDetailedViewModel
-                {
-                    Id = employee.Id,
-                    Name = employee.Name,
-                    Department = employee.Department,
-                    Age = employee.Age,
-                    Address = employee.Address
+                    Id = 1,
+                    Name = "Dummy Name",
+                    Department = "Dummy Department",
+                    Age = 30,
+                    Address = "Dummy Address"
                 };
 
                 return Ok(employeeDetailedViewModel);
@@ -80,8 +40,29 @@ namespace EmployeeManagement.API.Controllers
             {
                 throw;
             }
-
         }
 
+        [HttpGet]
+        [Route("get-all")]
+        public IActionResult GetEmployees()
+        {
+            /// get employees by calling GetEmployees() in IEmployeeService and store it in a variable and Map that variable to EmployeeDetailedViewModel. 
+            /// 
+            var listOfEmployeeViewModel = new List<EmployeeDetailedViewModel>()
+            {
+                new EmployeeDetailedViewModel
+                {
+
+                    Id = 1,
+                    Name = "Dummy Name",
+                    Department = "Dummy Department",
+                    Age = 30,
+                    Address = "Dummy Address"
+                }
+            };
+            return Ok(listOfEmployeeViewModel);
+        }
+
+        //Create Employee Insert, Update and Delete Endpoint here
     }
 }

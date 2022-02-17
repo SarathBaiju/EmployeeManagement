@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EmployeeManagement.DataAccess.Models
+﻿namespace EmployeeManagement.DataAccess.Models
 {
     public class EmployeeData
     {

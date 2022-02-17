@@ -5,24 +5,25 @@ using System.Net.Http;
 
 namespace EmployeeManagement.UI.Providers.ApiClients
 {
-    public class EmployeeApiClient :BaseHttpClient, IEmployeeApiClient
+    public class EmployeeApiClient : IEmployeeApiClient
     {
-        private const string RELATIVE_GET_EMPLOYEE_URI = "/api/employee/{0}";
-        private const string RELATIVE_GET_ALL_EMPLOYEE_URI = "/api/employee/get-all";
+        private readonly HttpClient _httpClient;
 
-        public EmployeeApiClient(HttpClient httpClient):base(httpClient)
+        public EmployeeApiClient(HttpClient httpClient)
         {
-
+            _httpClient = httpClient;
         }
 
         public IEnumerable<EmployeeData> GetAllEmployee()
         {
-            return ExecuteGet<IEnumerable<EmployeeData>>(RELATIVE_GET_ALL_EMPLOYEE_URI);
+            //Consume /employee endpoint in the EmployeeManagementApi using _httpClient
+            return null;
         }
 
         public EmployeeData GetEmployeeById(int id)
         {
-            return ExecuteGet<EmployeeData>(string.Format(RELATIVE_GET_EMPLOYEE_URI, id));
+            //Consume /{employeeId} endpoint in the EmployeeManagementApi using _httpClient
+            return null;
         }
     }
 }
