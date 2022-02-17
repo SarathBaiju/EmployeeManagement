@@ -15,33 +15,33 @@ namespace EmployeeManagement.DataAccess.Repository
             {
                  new EmployeeData
                 {
-                    Name = "sarath",
+                    Name = "John",
                     Id = 100,
                     Department = "DEV",
                     Age = 25,
-                    Address = "Trivandrum"
+                    Address = "London"
                 },
                  new EmployeeData
                 {
-                    Name = "nandu",
+                    Name = "Maria",
                     Id = 91,
-                    Department = "DEV",
+                    Department = "DEVOPS",
                     Age = 27,
-                    Address = "Alapuzha"
+                    Address = "Mumbai"
                 },
-                   new EmployeeData
+                 new EmployeeData
                 {
-                    Name = "hari",
+                    Name = "Vishnu",
                     Id = 101,
                     Department = "DEV",
                     Age = 26,
-                    Address = "Thrisur"
+                    Address = "Kerala"
                 },
-                    new EmployeeData
+                 new EmployeeData
                 {
-                    Name = "Arun",
+                    Name = "Aravind",
                     Id = 92,
-                    Department = "DEV",
+                    Department = "TESTING",
                     Age = 26,
                     Address = "Ernakulam"
                 }

@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Application.Contracts;
 using EmployeeManagement.UI.Models;
+using EmployeeManagement.UI.Providers.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,32 @@ namespace EmployeeManagement.UI.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly IEmployeeService _employeeService;
+        private readonly IEmployeeApiClient _employeeApiClient;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeApiClient employeeApiClient)
         {
-            this._employeeService = employeeService;
+            this._employeeApiClient = employeeApiClient;
         }
 
         public IActionResult Index()
         {
-            var employees = _employeeService.GetEmployees();
-
-            var employeeViewModels = employees.Select(employee => new EmployeeViewModel
+            try
             {
-                Id = employee.Id,
-                Name = employee.Name,
-                Department = employee.Department
-            });
-            return View(employeeViewModels);
+                var employees = _employeeApiClient.GetAllEmployee();
+
+                var employeeViewModels = employees.Select(employee => new EmployeeViewModel
+                {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Department = employee.Department
+                });
+                return View(employeeViewModels);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
