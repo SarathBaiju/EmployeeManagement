@@ -17,6 +17,7 @@ namespace EmployeeManagement.Application.Services
 
         public EmployeeDto GetEmployeeById(int id)
         {
+            var x = 123;
             //Get data from Repository
             return null;
         }
