@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace EmployeeManagement.API.Controllers
 {
-    [Route("api/employee")]
+    [Route("api/employees")]
     [ApiController]
     public class EmployeeApiController : ControllerBase
     {

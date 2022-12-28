@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.UI.Models;
+﻿using EmployeeManagement.DataAccess.Models;
+using EmployeeManagement.UI.Models;
 using EmployeeManagement.UI.Providers.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.UI.Controllers.InternalAPI
 {
-    [Route("api/internal/employee")]
+    [Route("api/internal/employees")]
     [ApiController]
     public class EmployeeInternalApiController : ControllerBase
     {
@@ -28,7 +29,12 @@ namespace EmployeeManagement.UI.Controllers.InternalAPI
             {
                 var employee = _employeeApiClient.GetEmployeeById(employeeId);
 
-                return Ok(employee);
+                return Ok(new EmployeeViewModel
+                {
+                    Id = 1,
+                    Name = "Dummy Name",
+                    Department = "Dummy Department"
+                });
             }
             catch (Exception ex)
             {
